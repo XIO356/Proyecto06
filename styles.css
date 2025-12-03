@@ -1,0 +1,77 @@
+/* --- ESTILO GENERAL --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    text-align: center;
+}
+
+/* Título */
+.titulo {
+    font-size: 3rem;
+    margin: 40px 0 20px 0;
+}
+
+/* GALERÍA - UNA FILA */
+.galeria {
+    display: flex;
+    flex-wrap: nowrap;        /* todos en una sola fila */
+    justify-content: flex-start;
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow-x: auto;          /* scroll horizontal si no caben */
+    padding-bottom: 20px;
+}
+
+/* CADA PERSONAJE */
+.personaje {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+/* Ambas imágenes */
+.personaje img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Por defecto: animada visible, quieta invisible */
+.animado {
+    opacity: 1;
+    z-index: 2;
+}
+
+.quieto {
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Hover: animada desaparece, quieta aparece */
+.personaje:hover .animado {
+    opacity: 0;
+}
+
+.personaje:hover .quieto {
+    opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .personaje {
+        width: 110px;
+        height: 110px;
+    }
+}
